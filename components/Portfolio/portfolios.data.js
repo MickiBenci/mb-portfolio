@@ -1,0 +1,98 @@
+export const portfolios = [
+  {
+    name: "Homeprime",
+    url: "https://homeprime.it",
+    logo: "https://homeprime.it/wp-content/themes/yootheme/cache/23/HomePrime-logo-23dc1754.png",
+    category: "Web App",
+  },
+  {
+    name: "Karmika Comunicazione",
+    url: "https://karmika.net",
+    logo: "https://karmika.net/wp-content/uploads/2022/01/logo-karmika-logo-hq-reg-ok.png",
+    category: "Sito Vetrina",
+  },
+  {
+    name: "GekoForGreen",
+    url: "https://gekoforgreen.com/",
+    logo: "https://gekoforgreen.com/wp-content/themes/yootheme/cache/logo-GEKO-GREEN-e32e7605.webp",
+    category: "Portale",
+  },
+  {
+    name: "Franca Soavi",
+    url: "https://francasoavi.com/",
+    logo: "https://francasoavi.com/wp-content/themes/yootheme/cache/82/logo-Franca-ok-82a9c873.png",
+    category: "Sito Vetrina",
+  },
+  {
+    name: "Fable Farm",
+    url: "https://fablefarm.it/",
+    logo: "https://fablefarm.it/wp-content/themes/yootheme/cache/17/fable-farm-logo-hi-q-17d41f92.png",
+    category: "Sito Vetrina",
+  },
+  {
+    name: "Albero della Vita",
+    url: "https://alberodellavitaparma.it/",
+    logo: "https://alberodellavitaparma.it/wp-content/themes/yootheme/cache/1c/Logo-Albero-della-Vita-38847a5e-240w-1c4460f1.png",
+    category: "Ecommerce",
+  },
+  {
+    name: "Scuola626",
+    url: "https://scuola626.com/",
+    logo: "https://scuola626.com/wp-content/themes/yootheme/cache/be/logo-2017-ok-ok-ok-bed36f8c.png",
+    category: "Portale",
+  },
+  {
+    name: "Pyou ES",
+    url: "https://pyou.es/",
+    logo: "https://pyou.es/wp-content/uploads/2022/09/pyou-es-logo-ok.png",
+    category: "Portale",
+  },
+  {
+    name: "Pyou UK",
+    url: "https://pyou.uk/",
+    logo: "https://pyou.es/wp-content/uploads/2022/09/pyou-es-logo-ok.png",
+    category: "Portale",
+  },
+  {
+    name: "Pyou HK",
+    url: "https://pyou.com.hk/",
+    logo: "https://pyou.es/wp-content/uploads/2022/09/pyou-es-logo-ok.png",
+    category: "Portale",
+  },
+  {
+    name: "Caccianemici",
+    url: "https://www.caccianemici.it/",
+    logo: "https://www.caccianemici.it/wp-content/uploads/2020/09/logo-home.png",
+    category: "Ecommerce",
+  },
+  {
+    name: "Maen Tech",
+    url: "https://www.maen.tech/",
+    logo: "https://www.maen.tech/wp-content/uploads/2021/04/logo-margotta-energia.png",
+    category: "Ecommerce",
+  },
+  {
+    name: "Cento Sports",
+    url: "https://centosports.it/",
+    logo: "https://centosports.it/wp-content/uploads/2022/04/Centosport-logo-vettoriale.png",
+    category: "Ecommerce",
+  },
+  {
+    name: "Frè",
+    url: "https://frefrefre.com/",
+    logo: "https://frefrefre.com/wp-content/uploads/2023/09/FRE-BLACK-anime.svg",
+    category: "Sito Vetrina",
+  },
+  {
+    name: "Dynsphotos",
+    url: "https://www.dynsphotos.it/",
+    logo: "https://www.dynsphotos.it/wp-content/uploads/2023/06/Logo-biancosfondo.png",
+    category: "Sito Vetrina",
+  },
+  {
+    name: "Temporama Alchemico",
+    url: "https://temporamaalchemico.com/",
+    logo: "https://temporamaalchemico.com/wp-content/uploads/2022/12/TEMPORAMA-LOGO-dark.png",
+    category: "Sito Vetrina",
+  },
+];
