@@ -19,9 +19,13 @@ export default function Portfolio() {
     }
   });
   return (
-    <div id="porfolio" className="uk-section uk-section-muted">
-      <div className="uk-container uk-animation-fade">
-        <h2>__Portfolio</h2>
+    <div
+      id="portfolio"
+      className="uk-section uk-section-muted uk-margin-medium-top"
+      uk-scrollspy="cls:uk-animation-fade"
+    >
+      <div className="uk-container uk-animation-slide-top-medium">
+        <h2 className="uk-heading-medium">Portfolio</h2>
         <div className="grid-portfolios uk-margin-medium-top">
           <div uk-filter="target: .js-filter">
             <SwitcherGridActions categories={categories} />

@@ -11,7 +11,7 @@ export default function SwitcherGridActions(props) {
         {categories.map((item) => {
           const { cat, category } = item;
           return (
-            <li uk-filter-control={`.tag-${cat}`}>
+            <li uk-filter-control={`.tag-${cat}`} key={`.tag-${cat}`}>
               <a href="#">{category}</a>
             </li>
           );

@@ -14,9 +14,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="it">
       <body className={jetbrains.className}>{children}</body>
-
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js" />
     </html>
   );
 }

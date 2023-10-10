@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import logo from "@/public/logo-mb-webdesign.png";
+import logoLight from "@/public/logo-mb-webdesign-light.png";
 
 export default function Navbar() {
   const [toTop, setToTop] = useState(0);
@@ -39,6 +41,8 @@ export default function Navbar() {
     toTop <= 100
       ? "uk-navbar-transparent uk-position-absolute uk-position-top uk-light"
       : "";
+
+  let logo_src = toTop <= 100 ? logoLight : logo;
   return (
     <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
       <div
@@ -49,10 +53,15 @@ export default function Navbar() {
             <div className="uk-navbar-left">
               <a
                 className="uk-navbar-item uk-logo"
-                href="#"
+                href="/"
                 aria-label="Back to Home"
               >
-                Logo
+                <img
+                  src={logo_src.src}
+                  alt="Logo MB Web Design"
+                  className="uk-logo"
+                  width="70"
+                />
               </a>
             </div>
             <div className="uk-navbar-right">

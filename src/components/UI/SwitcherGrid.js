@@ -10,7 +10,11 @@ export default function SwitcherGrid(props) {
       {items.map((item) => {
         let cat = item.category.trim().replace(" ", "-").toLowerCase();
         return (
-          <li className={`tag-${cat}`}>
+          <li
+            className={`tag-${cat}`}
+            key={Math.random(0, 50)}
+            uk-scrollspy="cls:uk-animation-scale-up"
+          >
             <a
               href={item.url}
               className="uk-link-toggle uk-display-block"

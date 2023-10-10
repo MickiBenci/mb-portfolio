@@ -109,7 +109,10 @@ export default function Contact() {
       })
       .then((data) => {
         if (data.success) {
-          UIkit.notification("Messaggio Inviato", { status: "success" });
+          UIkit.notification("Messaggio Inviato", {
+            status: "success",
+            pos: "bottom-right",
+          });
           e.target.reset();
         }
       });
