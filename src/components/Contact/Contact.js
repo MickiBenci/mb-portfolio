@@ -31,11 +31,7 @@ export default function Contact() {
     privacy: false,
   });
 
-  const [errors, setErrors] = useState({
-    name: "",
-    email: "",
-    privacy: false,
-  });
+  const [errors, setErrors] = useState({});
 
   const privacyHandler = (e) => {
     const checked = e.target.checked;
@@ -57,9 +53,7 @@ export default function Contact() {
   };
   const submitHander = (e) => {
     e.preventDefault();
-
-    setErrors({ name: "", email: "", privacy: false });
-
+    setErrors({});
     //Validation
     if (!formData.name.trim()) {
       setErrors((prevState) => {
@@ -94,29 +88,42 @@ export default function Contact() {
         };
       });
     }
-
-    const url = "http://localhost:3000/api/sendEmail";
-
-    fetch(url, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        return response.json();
+    if (!Object.keys(errors).length > 0) {
+      UIkit.notification("Compila i campi richiesti", {
+        status: "danger",
+        pos: "bottom-right",
+      });
+      return;
+    } else {
+      const url = "/api/sendEmail";
+      fetch(url, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       })
-      .then((data) => {
-        if (data.success) {
-          UIkit.notification("Messaggio Inviato", {
-            status: "success",
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          if (data.success) {
+            UIkit.notification("Messaggio Inviato", {
+              status: "success",
+              pos: "bottom-right",
+            });
+            e.target.reset();
+          }
+        })
+        .catch((e) => {
+          UIkit.notification("Si è verificato un errore", {
+            status: "danger",
             pos: "bottom-right",
           });
-          e.target.reset();
-        }
-      });
+        });
+    }
   };
+
   return (
     <div
       className="contact-wrap uk-section uk-section-secondary uk-light uk-animation-fade"

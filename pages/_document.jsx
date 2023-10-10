@@ -27,6 +27,9 @@ class MyDocument extends Document {
         </Head>
         <body>
           <Main />
+          <div id="mobile-dialog">
+
+          </div>
           <NextScript />
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js"

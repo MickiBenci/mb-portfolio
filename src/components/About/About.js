@@ -24,17 +24,20 @@ export default function About() {
     <div className="uk-section uk-section-primary" id="about">
       <div className="uk-container" uk-scrollspy="cls:uk-animation-scale-up">
         <h2 className="uk-heading-medium">About</h2>
-        <div className="uk-grid uk-child-width-1-2@s">
+        <div className="uk-grid uk-child-width-1-2@s uk-grid-margin">
           <div
-            className="bio-content uk-margin-small-top uk-text-justify"
+            className="bio-content uk-margin-small-top uk-text-justify uk-margin-medium-top"
             uk-scrollspy="cls:uk-animation-slide-top-small"
           >
             <AboutContent />
           </div>
-          <div className="about-skills uk-text-center" ref={ref}>
-            <h3>Skills</h3>
+          <div
+            className="about-skills uk-text-center uk-margin-medium-top"
+            ref={ref}
+          >
+            <h3 className="uk-heading-medium">Skills</h3>
             <div
-              className="uk-margin-auto uk-grid uk-child-width-1-2@s uk-grid-margin"
+              className="skills-container uk-margin-auto@s uk-grid uk-child-width-1-2@s uk-grid-margin"
               uk-scrollspy="cls:uk-animation-slide-left-small"
             >
               {skills.map((item) => {

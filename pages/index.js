@@ -3,13 +3,13 @@ import "@/assets/css/uikit.min.css";
 import "@/assets/css/custom.min.css";
 import Contact from "@/src/components/Contact/Contact";
 import Hero from "@/src/components/Hero/Hero";
-import Navbar from "@/src/components/Navbar/Navbar";
 import Portfolio from "@/src/components/Portfolio/Portfolio";
 import Stacks from "@/src/components/Skills/Stacks";
 import { useEffect } from "react";
 import logo from "@/public/logo-mb-webdesign.png";
 import { useState } from "react";
 import About from "@/src/components/About/About";
+import Header from "@/src/components/Navbar/Header";
 
 export default function index() {
   const [loaded, setLoaded] = useState(false);
@@ -36,7 +36,7 @@ export default function index() {
           className="uk-position-relative"
           uk-scrollspy="cls:uk-animation-fade"
         >
-          <Navbar />
+          <Header />
           <Hero />
           <About />
           <Stacks />

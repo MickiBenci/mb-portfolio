@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import logo from "@/public/logo-mb-webdesign.png";
 import logoLight from "@/public/logo-mb-webdesign-light.png";
 
-export default function Navbar(props) {
+export default function NavbarMobile(props) {
   const MenuItems = props.menuItems;
 
   const [toTop, setToTop] = useState(0);
@@ -15,6 +15,10 @@ export default function Navbar(props) {
     setToTop(toTop);
   };
 
+  const openModal = (e) => {
+    e.preventDefault();
+    props.onOpen(true);
+  };
   window.addEventListener("scroll", onScrollHandler);
 
   let navbar_classes =
@@ -45,17 +49,11 @@ export default function Navbar(props) {
               </a>
             </div>
             <div className="uk-navbar-right">
-              <ul className="uk-navbar-nav">
-                {MenuItems.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      <a href={item.permalink} uk-scroll="true">
-                        {item.label}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
+              <button
+                className="uk-navbar-toggle"
+                uk-navbar-toggle-icon=""
+                onClick={openModal}
+              ></button>
             </div>
           </nav>
         </div>

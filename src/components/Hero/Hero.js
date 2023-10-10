@@ -58,7 +58,9 @@ export default function Hero() {
       <li key={Math.random(0, 50)}>
         <div className="uk-grid">
           <div className="uk-width-1-4">{content.label}</div>
-          <div className="uk-width-3-4">{content.content}</div>
+          <div className="uk-width-3-4 uk-text-left@m uk-text-right">
+            {content.content}
+          </div>
         </div>
       </li>
     );
@@ -67,9 +69,9 @@ export default function Hero() {
     <div className="hero-section uk-position-relative uk-section uk-section-secondary">
       <div className="background-off uk-background-primary uk-position-center"></div>
       <div className="uk-container uk-margin-medium-top">
-        <div className="uk-grid uk-child-width-1-2@s uk-flex uk-flex-middle">
+        <div className="uk-grid uk-flex uk-child-width-1-2@s uk-flex uk-flex-middle">
           <div>
-            <div className="image-wrap uk-animation-slide-left-small">
+            <div className="image-wrap uk-animation-slide-left-small uk-margin-medium-top">
               <img
                 src={foto.src}
                 alt="Foto Michelangelo Bencivenga"
@@ -78,8 +80,8 @@ export default function Hero() {
               />
             </div>
           </div>
-          <div>
-            <div className="uk-text-center uk-animation-scale-up">
+          <div className="uk-flex-first" uk-scrollspy="cls:uk-animation-fade">
+            <div className="uk-animation-scale-up uk-margin-medium-top uk-text-left@m uk-text-center">
               <h2 className="uk-margin-remove-bottom">
                 Michelangelo Bencivenga
               </h2>

@@ -13,7 +13,7 @@ export default function Stacks() {
         <div className="uk-container uk-text-center ">
           <h2 className="uk-heading-medium uk-margin-medium-bottom">Stacks</h2>
           <div
-            className="uk-grid uk-child-width-1-5@m uk-child-width-1-2@s uk-grid-small grid-stacks"
+            className="uk-grid uk-child-width-1-5@m uk-child-width-1-2 uk-grid-small grid-stacks"
             uk-grid=""
           >
             {stacks.map((item) => {
