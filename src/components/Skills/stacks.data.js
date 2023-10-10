@@ -1,5 +1,5 @@
 import nextLogo from "@/public/next.svg";
-import wordpress from "@/public/Wordpress.png";
+import wordpress from "@/public/wp.png";
 import php from "@/public/php-svgrepo-com.svg";
 import html from "@/public/html-5-logo-svgrepo-com.svg";
 import js from "@/public/javascript-svgrepo-com.svg";

@@ -1,5 +1,6 @@
 import React from "react";
 import { stacks } from "./stacks.data";
+import Image from "next/image";
 
 export default function Stacks() {
   return (
@@ -21,7 +22,12 @@ export default function Stacks() {
                 <div key={Math.random(0, 50)}>
                   <div className="uk-card uk-card-default uk-card-body uk-padding-small">
                     <div className="uk-card-media-top">
-                      <img src={logo.src} alt={name} />
+                      <Image
+                        src={logo.src}
+                        width="150"
+                        height="150"
+                        alt={name}
+                      />
                     </div>
                     <div className="uk-card-title uk-margin-medium-top">
                       <h5>{name}</h5>
