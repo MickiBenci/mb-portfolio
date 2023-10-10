@@ -22,6 +22,12 @@ class MyDocument extends Document {
               <meta name="robots" content="index, follow" />
               <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
               <meta name="language" content="Italian" />
+              <meta property="og:title" content="MB Web Design" />
+              <meta property="og:site_name" content="MB Web Design"/>
+              <meta property="og:url" content="https://www.mbencivenga.it" />
+              <meta property="og:description" content="Sito Web e Portfolio di Michelangelo Bencivenga" />
+              <meta property="og:type" content="" />
+              <meta property="og:image" content="/foto-michelangelo-bencivenga.jpg" />
 
 
         </Head>
