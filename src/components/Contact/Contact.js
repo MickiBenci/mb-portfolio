@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Input from "../UI/Input";
 
 import { load } from "recaptcha-v3";
+import Spinner from "../UI/Spinner";
 
 export default function Contact() {
   const [recaptcha_token, setRecaptcha_token] = useState("");
@@ -32,6 +33,7 @@ export default function Contact() {
   });
 
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const privacyHandler = (e) => {
     const checked = e.target.checked;
@@ -51,20 +53,25 @@ export default function Contact() {
       };
     });
   };
+
   const submitHander = (e) => {
     e.preventDefault();
     setErrors({});
+    setIsLoading(true);
+    const $errors = [];
     //Validation
     if (!formData.name.trim()) {
+      $errors.push({ name: "Il campo nome è richiesto" });
       setErrors((prevState) => {
         return {
           ...prevState,
-          ["name"]: "Il campo nome è richiesto",
+          ["name"]: "Il campo email è richiesto",
         };
       });
     }
 
     if (!formData.email.trim()) {
+      $errors.push({ email: "Il campo nome è richiesto" });
       setErrors((prevState) => {
         return {
           ...prevState,
@@ -72,6 +79,7 @@ export default function Contact() {
         };
       });
     } else if (!formData.email.trim().includes("@")) {
+      $errors.push({ email: "L'email non è valida" });
       setErrors((prevState) => {
         return {
           ...prevState,
@@ -81,6 +89,7 @@ export default function Contact() {
     }
 
     if (!formData.privacy) {
+      $errors.push({ privacy: "Devi Accettare la privacy policy" });
       setErrors((prevState) => {
         return {
           ...prevState,
@@ -88,7 +97,8 @@ export default function Contact() {
         };
       });
     }
-    if (!Object.keys(errors).length > 0) {
+    if (Object.keys($errors).length > 0) {
+      setIsLoading(false);
       UIkit.notification("Compila i campi richiesti", {
         status: "danger",
         pos: "bottom-right",
@@ -112,10 +122,12 @@ export default function Contact() {
               status: "success",
               pos: "bottom-right",
             });
+            setIsLoading(false);
             e.target.reset();
           }
         })
         .catch((e) => {
+          setIsLoading(false);
           UIkit.notification("Si è verificato un errore", {
             status: "danger",
             pos: "bottom-right",
@@ -189,8 +201,15 @@ export default function Contact() {
               </div>
               <div className="uk-width-1-1 uk-margin">
                 <div className="uk-text-center">
-                  <button type="submit" className="uk-button uk-button-primary">
-                    Invia
+                  <button
+                    type="submit"
+                    className={
+                      isLoading
+                        ? "uk-button uk-button-primary inline-flex"
+                        : "uk-button uk-button-primary"
+                    }
+                  >
+                    Invia {isLoading && <Spinner />}
                   </button>
                 </div>
                 <div className="reacptacha">

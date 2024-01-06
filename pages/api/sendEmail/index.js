@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
@@ -61,12 +63,10 @@ export default async function handler(req, res) {
       );
 
       if (!recaptcha_verification) {
-        res
-          .status(500)
-          .json({
-            success: false,
-            error: "Non sei autorizzato ad inviare questa email!",
-          });
+        res.status(500).json({
+          success: false,
+          error: "Non sei autorizzato ad inviare questa email!",
+        });
         return;
       }
 
