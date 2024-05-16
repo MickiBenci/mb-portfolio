@@ -8,7 +8,7 @@ export default function Hero() {
 
   useEffect(() => {
     const numberArr = ["+39", "392", "03", "54", "531"];
-    setnumber(numberArr.join());
+    setnumber(numberArr.join(""));
   }, []);
 
   let contentAbout = [
@@ -19,7 +19,7 @@ export default function Hero() {
     {
       label: "TEL",
       content: (
-        <a href="tel:+393920354531" target="_blank">
+        <a href="tel:+393920354531" target="_blank" rel="noopener noreferrer">
           {number}
         </a>
       ),
@@ -31,6 +31,7 @@ export default function Hero() {
           style={{ fontSize: "14px" }}
           href="mailto:info@mbencivenga.it"
           target="_blank"
+          rel="noopener noreferrer"
         >
           infoATmbencivenga.it
         </a>
