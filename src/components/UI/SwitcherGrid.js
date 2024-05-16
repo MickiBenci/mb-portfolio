@@ -14,6 +14,7 @@ export default function SwitcherGrid(props) {
               href={item.url}
               className="uk-link-toggle uk-display-block"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <div className="uk-card uk-card-default">
                 <div className="uk-card-media-top card-portolio-img">
