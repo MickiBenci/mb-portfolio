@@ -24,21 +24,9 @@ export const portfolios = [
     category: "Sito Vetrina",
   },
   {
-    name: "GekoForGreen",
-    url: "https://gekoforgreen.com/",
-    logo: "https://gekoforgreen.com/wp-content/uploads/2021/05/logo-GEKO-GREEN.png",
-    category: "Portale",
-  },
-  {
     name: "Franca Soavi",
     url: "https://francasoavi.com/",
     logo: "https://francasoavi.com/wp-content/uploads/2023/05/logo-Franca-ok.png",
-    category: "Sito Vetrina",
-  },
-  {
-    name: "Fable Farm",
-    url: "https://fablefarm.it/",
-    logo: "https://fablefarm.it/wp-content/uploads/2022/11/fable-farm-logo-hi-q.png",
     category: "Sito Vetrina",
   },
   {
