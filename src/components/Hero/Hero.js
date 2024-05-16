@@ -1,9 +1,16 @@
 "use-client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import foto from "../../../public/foto-michelangelo-bencivenga.jpg";
 
 export default function Hero() {
+  const [number, setnumber] = useState("");
+
+  useEffect(() => {
+    const numberArr = ["+39", "392", "03", "54", "531"];
+    setnumber(numberArr.join());
+  }, []);
+
   let contentAbout = [
     {
       label: "CLASSE",
@@ -13,7 +20,7 @@ export default function Hero() {
       label: "TEL",
       content: (
         <a href="tel:+393920354531" target="_blank">
-          +39 392 03 54 531
+          {number}
         </a>
       ),
     },
