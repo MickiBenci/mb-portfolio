@@ -18,6 +18,8 @@ export default function SwitcherGridActions(props) {
     catChange(cat);
   };
 
+  const activeAllClass = catSelected === "all" ? "uk-active" : "";
+
   useEffect(() => {
     console.log(catSelected);
   }, [catSelected]);
@@ -25,7 +27,7 @@ export default function SwitcherGridActions(props) {
   return (
     <div className="uk-margin-medium-bottom">
       <ul className="uk-subnav uk-subnav-pill">
-        <li className={catSelected === "all" ? "uk-active" : ""}>
+        <li className={activeAllClass}>
           <a
             href="#"
             ref={switchItemRef}
@@ -37,8 +39,9 @@ export default function SwitcherGridActions(props) {
         </li>
         {categories.map((item) => {
           const { cat, category } = item;
+          const activeClass = catSelected === cat ? "uk-active" : "";
           return (
-            <li key={cat} className={catSelected === cat && "uk-active"}>
+            <li key={cat} className={activeClass}>
               <a
                 href="#"
                 ref={switchItemRef}

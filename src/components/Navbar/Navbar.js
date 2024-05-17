@@ -3,6 +3,9 @@
 import React, { useState } from "react";
 import logo from "@/public/logo-mb-webdesign.png";
 import logoLight from "@/public/logo-mb-webdesign-light.png";
+import { useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar(props) {
   const MenuItems = props.menuItems;
@@ -15,7 +18,12 @@ export default function Navbar(props) {
     setToTop(toTop);
   };
 
-  window.addEventListener("scroll", onScrollHandler);
+  useEffect(() => {
+    window.addEventListener("scroll", onScrollHandler);
+    return () => {
+      window.removeEventListener("scroll", onScrollHandler);
+    };
+  }, []);
 
   let navbar_classes =
     toTop <= 100
@@ -24,34 +32,34 @@ export default function Navbar(props) {
 
   let logo_src = toTop <= 100 ? logoLight : logo;
   return (
-    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+    <div>
       <div
-        className={`uk-navbar-container uk-position-z-index ${navbar_classes}`}
+        className={`uk-navbar-container sticky-navbar uk-position-z-index ${navbar_classes}`}
       >
         <div className="uk-container">
           <nav className="uk-navbar">
             <div className="uk-navbar-left">
-              <a
-                className="uk-navbar-item uk-logo"
-                href="/"
-                aria-label="Back to Home"
-              >
-                <img
-                  src={logo_src.src}
+              <Link href="/" className="uk-navbar-item uk-logo">
+                <Image
+                  src={logo_src}
+                  width={70}
+                  height={70}
+                  className="uk-animation-slide-top-small"
                   alt="Logo MB Web Design"
-                  className="uk-logo"
-                  width="70"
                 />
-              </a>
+              </Link>
             </div>
             <div className="uk-navbar-right">
               <ul className="uk-navbar-nav">
                 {MenuItems.map((item, index) => {
                   return (
                     <li key={index}>
-                      <a href={item.permalink} uk-scroll="true">
+                      <Link
+                        href={item.permalink}
+                        className="uk-navbar-item uk-logo"
+                      >
                         {item.label}
-                      </a>
+                      </Link>
                     </li>
                   );
                 })}

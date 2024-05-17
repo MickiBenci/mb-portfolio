@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "@/public/logo-mb-webdesign.png";
 import logoLight from "@/public/logo-mb-webdesign-light.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavbarMobile(props) {
   const MenuItems = props.menuItems;
@@ -17,9 +19,15 @@ export default function NavbarMobile(props) {
 
   const openModal = (e) => {
     e.preventDefault();
-    props.onOpen(true);
+    props.onOpen();
   };
-  window.addEventListener("scroll", onScrollHandler);
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScrollHandler);
+    return () => {
+      window.removeEventListener("scroll", onScrollHandler);
+    };
+  }, []);
 
   let navbar_classes =
     toTop <= 100
@@ -28,9 +36,9 @@ export default function NavbarMobile(props) {
 
   let logo_src = toTop <= 100 ? logoLight : logo;
   return (
-    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+    <div>
       <div
-        className={`uk-navbar-container uk-position-z-index ${navbar_classes}`}
+        className={`uk-navbar-container sticky-navbar uk-position-z-index ${navbar_classes}`}
       >
         <div className="uk-container">
           <nav className="uk-navbar">
@@ -50,10 +58,11 @@ export default function NavbarMobile(props) {
             </div>
             <div className="uk-navbar-right">
               <button
-                className="uk-navbar-toggle"
-                uk-navbar-toggle-icon=""
+                className="toggle uk-button uk-button-link"
                 onClick={openModal}
-              ></button>
+              >
+                <FontAwesomeIcon icon={faBars} size={30} />
+              </button>
             </div>
           </nav>
         </div>

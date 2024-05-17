@@ -55,6 +55,7 @@ export default async function handler(req, res) {
         to: "info@mbencivenga.it",
         subject: "Nuovo Messaggio dal Sito",
         text: `Nome: ${name}\nEmail: ${email}\nMessaggio: ${message}`,
+        replyTo: email,
       };
 
       const recaptcha_verification = verifyRecaptchaV3(
