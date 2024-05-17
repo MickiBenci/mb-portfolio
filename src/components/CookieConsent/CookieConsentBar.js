@@ -8,6 +8,12 @@ function CookieConsentBar() {
     const consent = localStorage.getItem("cookieConsent");
     if (consent) {
       setCookieTouched(true);
+      if (consent === "true") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "consentGiven",
+        });
+      }
     }
   }, []);
 
@@ -23,6 +29,7 @@ function CookieConsentBar() {
   const onDenyHandle = (e) => {
     e.preventDefault();
     setCookieTouched(true);
+    localStorage.setItem("cookieConsent", "false");
   };
   return (
     <>
