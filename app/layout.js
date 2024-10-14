@@ -4,7 +4,6 @@ import { JetBrains_Mono } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Header from "@/src/components/Navbar/Header";
 import Footer from "@/src/components/Footer/Footer";
-import CookieConsentBar from "@/src/components/CookieConsent/CookieConsentBar";
 
 const jetbrains = JetBrains_Mono({ subsets: ["latin"] });
 export const viewport = {
@@ -56,7 +55,6 @@ export default function RootLayout({ children }) {
         <div id="mobile-dialog"></div>
         {children}
         <Footer />
-        <CookieConsentBar />
         <script
           src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js"
           integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA=="
