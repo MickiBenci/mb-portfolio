@@ -40,7 +40,7 @@ async function verifyRecaptchaV3(secretKey, token, threshold = 0.5) {
 export async function POST(req) {
   try {
     // Leggi i dati dalla richiesta
-    const body = await req.json(); // Assicurati che il corpo sia JSON
+    const body = await req.json();
     const { name, email, message, recaptcha } = body;
 
     // Verifica il token reCAPTCHA

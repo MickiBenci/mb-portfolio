@@ -2,137 +2,122 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Input from "../UI/Input";
-
 import { load } from "recaptcha-v3";
 import Spinner from "../UI/Spinner";
 
 export default function Contact() {
-  const [recaptcha_token, setRecaptcha_token] = useState("");
-
-  const getToken = async () => {
-    const recaptcha = await load(process.env.NEXT_PUBLIC_SITE_KEY);
-
-    const token = await recaptcha.execute("login");
-
-    setRecaptcha_token(token);
-  };
-
-  useEffect(() => {
-    getToken();
-  }, []);
-
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const messageRef = useRef();
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
     privacy: false,
   });
-
+  const [recaptchaToken, setRecaptchaToken] = useState("");
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  const privacyHandler = (e) => {
-    const checked = e.target.checked;
-    setFormData((prevState) => {
-      return {
-        ...prevState,
-        ["privacy"]: checked,
-      };
-    });
-  };
-  const inputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => {
-      return {
-        ...prevState,
-        [name]: value,
-      };
-    });
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
+
+  const getToken = async () => {
+    try {
+      const recaptcha = await load(process.env.NEXT_PUBLIC_SITE_KEY);
+      const token = await recaptcha.execute("login");
+      setRecaptchaToken(token);
+    } catch (error) {
+      console.error("Errore durante il caricamento di reCAPTCHA:", error);
+    }
   };
 
-  const submitHander = (e) => {
-    e.preventDefault();
-    setErrors({});
-    setIsLoading(true);
-    const $errors = [];
-    //Validation
+  useEffect(() => {
+    getToken();
+  }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handlePrivacyChange = (e) => {
+    const checked = e.target.checked;
+    setFormData((prevState) => ({
+      ...prevState,
+      privacy: checked,
+    }));
+  };
+
+  const validateForm = () => {
+    const validationErrors = {};
+
     if (!formData.name.trim()) {
-      $errors.push({ name: "Il campo nome è richiesto" });
-      setErrors((prevState) => {
-        return {
-          ...prevState,
-          ["name"]: "Il campo email è richiesto",
-        };
-      });
+      validationErrors.name = "Il campo nome è richiesto";
     }
 
     if (!formData.email.trim()) {
-      $errors.push({ email: "Il campo nome è richiesto" });
-      setErrors((prevState) => {
-        return {
-          ...prevState,
-          ["email"]: "Il campo email è richiesto",
-        };
-      });
-    } else if (!formData.email.trim().includes("@")) {
-      $errors.push({ email: "L'email non è valida" });
-      setErrors((prevState) => {
-        return {
-          ...prevState,
-          ["email"]: "L'email non è valida",
-        };
-      });
+      validationErrors.email = "Il campo email è richiesto";
+    } else if (!formData.email.includes("@")) {
+      validationErrors.email = "L'email non è valida";
     }
 
     if (!formData.privacy) {
-      $errors.push({ privacy: "Devi Accettare la privacy policy" });
-      setErrors((prevState) => {
-        return {
-          ...prevState,
-          ["privacy"]: "Devi Accettare la privacy policy",
-        };
-      });
+      validationErrors.privacy = "Devi accettare la privacy policy";
     }
-    if (Object.keys($errors).length > 0) {
-      setIsLoading(false);
+
+    setErrors(validationErrors);
+    return Object.keys(validationErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrors({});
+
+    if (!validateForm()) {
       UIkit.notification("Compila i campi richiesti", {
         status: "danger",
         pos: "bottom-right",
       });
       return;
-    } else {
-      const url = "/api/send-email";
-      fetch(url, {
-        method: "post",
+    }
+
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
-      })
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          if (data.success) {
-            UIkit.notification("Messaggio Inviato", {
-              status: "success",
-              pos: "bottom-right",
-            });
-            setIsLoading(false);
-            e.target.reset();
-          }
-        })
-        .catch((e) => {
-          setIsLoading(false);
-          UIkit.notification("Si è verificato un errore", {
-            status: "danger",
-            pos: "bottom-right",
-          });
+        body: JSON.stringify({ ...formData, recaptcha: recaptchaToken }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        UIkit.notification("Messaggio inviato", {
+          status: "success",
+          pos: "bottom-right",
         });
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+          privacy: false,
+        });
+        e.target.reset();
+      } else {
+        throw new Error(data.message || "Errore durante l'invio");
+      }
+    } catch (error) {
+      console.error(error);
+      UIkit.notification("Si è verificato un errore", {
+        status: "danger",
+        pos: "bottom-right",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -146,7 +131,7 @@ export default function Contact() {
           Contattami
         </h2>
         <div className="form-wrap uk-animation-scale-up">
-          <form action="" onSubmit={submitHander}>
+          <form onSubmit={handleSubmit}>
             <div className="uk-grid">
               <div className="uk-width-1-2@s uk-margin">
                 <Input
@@ -154,7 +139,7 @@ export default function Contact() {
                   label="Nome"
                   placeholder="Inserisci il tuo nome..."
                   ref={nameRef}
-                  onChange={inputChange}
+                  onChange={handleInputChange}
                   name="name"
                 />
                 {errors.name && (
@@ -167,7 +152,7 @@ export default function Contact() {
                   label="Email"
                   placeholder="Inserisci la tua email..."
                   ref={emailRef}
-                  onChange={inputChange}
+                  onChange={handleInputChange}
                   name="email"
                 />
                 {errors.email && (
@@ -185,7 +170,7 @@ export default function Contact() {
                   rows="10"
                   placeholder="Parlami del tuo progetto..."
                   ref={messageRef}
-                  onChange={inputChange}
+                  onChange={handleInputChange}
                 ></textarea>
               </div>
               <div className="uk-width-1-1">
@@ -193,7 +178,7 @@ export default function Contact() {
                   type="checkbox"
                   name="privacy"
                   className="uk-checkbox uk-margin-small-right"
-                  onChange={privacyHandler}
+                  onChange={handlePrivacyChange}
                 />
                 Ho letto e accetto la
                 <a href="/privacy-policy"> Privacy Policy</a>
@@ -214,14 +199,6 @@ export default function Contact() {
                     Invia {isLoading && <Spinner />}
                   </button>
                 </div>
-                <div className="reacptacha">
-                  <input
-                    type="hidden"
-                    name="recaptcha"
-                    value={recaptcha_token}
-                  />
-                </div>
-                <div className="uk-background-success uk-text-success"></div>
               </div>
             </div>
           </form>
