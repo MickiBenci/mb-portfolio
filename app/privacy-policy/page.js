@@ -1,7 +1,7 @@
 function PrivacyPolicy() {
   return (
     <>
-      <div class="uk-section uk-section-default uk-background-secondary uk-light">
+      <div className="uk-section uk-section-default uk-background-secondary uk-light">
         <div className="uk-container uk-margin-medium-top ">
           <h1>
             <strong>Privacy policy</strong>

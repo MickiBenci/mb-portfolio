@@ -40,4 +40,28 @@ export const skills = [
     label: "NodeJS",
     percent: "70%",
   },
+  {
+    label: "Gsap",
+    percent: "70%",
+  },
+  {
+    label: "AlpineJS",
+    percent: "90%",
+  },
+  {
+    label: "React Native",
+    percent: "80%",
+  },
+  {
+    label: "Tailwind CSS",
+    percent: "90%",
+  },
+  {
+    label: "Apache",
+    percent: "80%",
+  },
+  {
+    label: "Vercel",
+    percent: "80%",
+  },
 ];

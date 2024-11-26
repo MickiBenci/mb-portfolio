@@ -22,10 +22,7 @@ export default function Home() {
   }, []);
   return (
     <>
-      <main
-        className="uk-position-relative"
-        uk-scrollspy="cls:uk-animation-fade"
-      >
+      <main className="uk-position-relative">
         <Hero />
         <About />
         <Stacks />

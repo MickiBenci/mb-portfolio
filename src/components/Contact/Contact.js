@@ -105,7 +105,7 @@ export default function Contact() {
       });
       return;
     } else {
-      const url = "/api/sendEmail";
+      const url = "/api/send-email";
       fetch(url, {
         method: "post",
         headers: {
@@ -142,7 +142,9 @@ export default function Contact() {
       id="contact"
     >
       <div className="uk-container uk-container-small">
-        <h2 className="uk-animation-slide-top-small">___Contattami</h2>
+        <h2 className="uk-animation-slide-top-small uk-heading-medium">
+          Contattami
+        </h2>
         <div className="form-wrap uk-animation-scale-up">
           <form action="" onSubmit={submitHander}>
             <div className="uk-grid">

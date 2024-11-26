@@ -2,9 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import foto from "../../../public/foto-michelangelo-bencivenga.jpg";
+import { useInView } from "react-intersection-observer";
 
 export default function Hero() {
   const [number, setnumber] = useState("");
+  const { ref, inView, entry } = useInView();
 
   useEffect(() => {
     const numberArr = ["+39", "392", "03", "54", "531"];
@@ -65,7 +67,7 @@ export default function Hero() {
     return (
       <li key={Math.random(0, 50)}>
         <div className="uk-grid">
-          <div className="uk-width-1-4">{content.label}</div>
+          <div className="uk-width-1-4 uk-first-column">{content.label}</div>
           <div className="uk-width-3-4 uk-text-left@m uk-text-right">
             {content.content}
           </div>
@@ -88,7 +90,7 @@ export default function Hero() {
               />
             </div>
           </div>
-          <div className="uk-flex-first" uk-scrollspy="cls:uk-animation-fade">
+          <div className="uk-flex-first">
             <div className="uk-animation-scale-up uk-margin-medium-top uk-text-left@m uk-text-center">
               <h2 className="uk-margin-remove-bottom">
                 Michelangelo Bencivenga

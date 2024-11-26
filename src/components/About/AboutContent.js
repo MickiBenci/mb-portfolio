@@ -3,33 +3,78 @@ import React from "react";
 export default function AboutContent() {
   return (
     <>
+      <h4 className="uk-margin-remove-bottom">Michelangelo Bencivenga</h4>
+      <h5 className="uk-margin-remove-top">
+        <em>Classe 1989</em>
+      </h5>
       <p>
-        Mi chiamo <strong>Michelangelo Bencivenga</strong>, classe 1989, e sono
-        un giovane laureato in discipline umanistiche, dotato di{" "}
-        <strong>ottima proprietà di linguaggio</strong> sia scritto che orale,
-        ed ottime doti organizzative e di <strong>problem solving</strong>.
+        Nonostante il mio background umanistico, sono sempre stato affascinato
+        dal mondo dello sviluppo web, una passione che ho trasformato in
+        competenza concreta attraverso corsi di formazione, apprendimento online
+        e un costante aggiornamento professionale.
       </p>
       <p>
-        Nonostante abbia una formazione di tipo Umanistico, sono stato sempre
-        molto affascinato dal Web Development, settore in cui mi sono formato
-        attraverso corsi di formazione, corsi online e continuo
-        auto-aggiornamento: ho conseguito uno Stage in Sviluppo siti Web in
-        Wordpress presso l'azienda <strong>Quolab</strong> di Bologna, svolgendo
-        anche attività di Account (Copywriting, assistenza tecnica,
-        configurazione email, hosting e domini) e UX Design (progettazione
-        anteprime grafiche siti web con Adobe XD e Balsamiq Mockup).
+        Ho maturato la mia prima esperienza nel settore durante uno stage in
+        sviluppo siti web con WordPress presso Quolab, a Bologna, dove ho
+        affinato competenze trasversali:
       </p>
+      <ul>
+        <li>
+          <strong>Sviluppo siti web:</strong> realizzazione da zero e
+          mantenimento
+        </li>
+        <li>
+          <strong>Account management:</strong> copywriting, assistenza tecnica,
+          configurazione email, hosting e domini.
+        </li>
+        <li>
+          <strong>UX Design:</strong> progettazione di anteprime grafiche con
+          Adobe XD e Balsamiq Mockup.
+        </li>
+        <li>
+          <strong>Gestione server:</strong> configurazione e manutenzione su
+          ambienti Apache.
+        </li>
+      </ul>
+      <p>Possiedo solide competenze tecniche:</p>
+      <ul>
+        <li>
+          <strong>Linguaggi:</strong> HTML, CSS/SCSS, JavaScript, PHP, MySQL.
+        </li>
+        <li>
+          <strong>Librerie CSS:</strong> UIkit, Tailwind CSS.
+        </li>
+        <li>
+          <strong>Controllo di versione:</strong> Git.
+        </li>
+      </ul>
       <p>
-        Ho ottime conoscenze di <strong>HTML</strong>, <strong>CSS</strong>,{" "}
-        <strong>SCSS</strong>, <strong>Javascript</strong>, <strong>PHP</strong>
-        , <strong>MySQL</strong>, ottima conoscenza delle librerie CSS{" "}
-        <strong>UIkit</strong> e <strong>Bootstrap</strong>. Dal 2018 mi occupo
-        principalmente di sviluppo web in ambito Wordpress come sviluppatore
-        freelance: mi sono occupato di ottimizzazione di temi e scrittura plugin
-        personalizzati, anche in ambiente Woocommerce. Dal 2021 mi sto formando
-        per acquisire conoscenze per lo stack <strong>ReactJS</strong> /{" "}
-        <strong>NodeJS / NextJS</strong> / <strong>MongoDB</strong> per la
-        realizzazione di web app e RESTful web services.
+        Dal 2018 lavoro come freelance specializzato in{" "}
+        <strong>WordPress</strong>, occupandomi di:
+      </p>
+      <ul>
+        <li>
+          Ottimizzazione di <strong>temi e sviluppo di plugin</strong>{" "}
+          personalizzati (anche per WooCommerce).
+        </li>
+        <li>
+          Creazione di <strong>soluzioni headless</strong> e web app tramite
+          l’utilizzo di REST API.
+        </li>
+      </ul>
+      <p>Dal 2021 ho ampliato il mio focus su tecnologie moderne, come:</p>
+      <ul>
+        <li>
+          <strong>Next.js e MongoDB</strong> per lo sviluppo di web app e
+          servizi RESTful.
+        </li>
+        <li>
+          <strong>React Native</strong>, per realizzare applicazioni native.
+        </li>
+      </ul>
+      <p>
+        Sempre curioso e determinato, continuo a investire nella mia crescita
+        professionale per affrontare nuove sfide e offrire soluzioni innovative.
       </p>
     </>
   );

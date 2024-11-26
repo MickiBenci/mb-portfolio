@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import SingleSkill from "./SingleSkill";
 import AboutContent from "./AboutContent";

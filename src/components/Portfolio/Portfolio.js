@@ -36,7 +36,6 @@ export default function Portfolio() {
     <div
       id="portfolio"
       className="uk-section uk-section-muted uk-margin-medium-top"
-      uk-scrollspy="cls:uk-animation-fade"
     >
       <div className="uk-container uk-animation-slide-top-medium">
         <h2 className="uk-heading-medium">Portfolio</h2>

@@ -3,13 +3,10 @@ import React from "react";
 export default function SwitcherGrid(props) {
   const { items } = props;
   return (
-    <ul
-      className="uk-child-width-1-2 uk-child-width-1-4@m uk-text-center uk-grid uk-grid-small"
-      uk-grid="masonry: pack"
-    >
+    <ul className="uk-child-width-1-2 uk-child-width-1-4@m uk-text-center uk-grid uk-grid-small">
       {items.map((item) => {
         return (
-          <li key={Math.random(0, 50)} uk-scrollspy="cls:uk-animation-scale-up">
+          <li key={Math.random(0, 50)} className="uk-grid-margin">
             <a
               href={item.url}
               className="uk-link-toggle uk-display-block"

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { stacks } from "./stacks.data";
 import Image from "next/image";
@@ -12,14 +14,11 @@ export default function Stacks() {
       >
         <div className="uk-container uk-text-center ">
           <h2 className="uk-heading-medium uk-margin-medium-bottom">Stacks</h2>
-          <div
-            className="uk-grid uk-child-width-1-5@m uk-child-width-1-2 uk-grid-small grid-stacks"
-            uk-grid=""
-          >
+          <div className="uk-grid uk-child-width-1-5@m uk-child-width-1-2 uk-grid-small grid-stacks">
             {stacks.map((item) => {
               const { name, logo } = item;
               return (
-                <div key={Math.random(0, 50)}>
+                <div key={Math.random(0, 50)} className="uk-grid-margin">
                   <div className="uk-card uk-card-default uk-card-body uk-padding-small">
                     <div className="uk-card-media-top">
                       <Image

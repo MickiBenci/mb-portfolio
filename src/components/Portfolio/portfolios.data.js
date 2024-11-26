@@ -12,6 +12,12 @@ export const portfolios = [
     category: "Sito Vetrina",
   },
   {
+    name: "Pepen Milano",
+    url: "https://pepenmilano.com/",
+    logo: "https://pepenmilano.com//wp-content/uploads/2024/10/pepen.svg",
+    category: "Ecommerce",
+  },
+  {
     name: "OuiFleurs",
     url: "https://www.ouifleurs.com",
     logo: "https://www.ouifleurs.com/wp-content/uploads/2024/02/logo-rosso-solo-scritta-menu.svg",
@@ -81,12 +87,6 @@ export const portfolios = [
     name: "Frè",
     url: "https://frefrefre.com/",
     logo: "https://frefrefre.com/wp-content/uploads/2023/09/FRE-BLACK-anime.svg",
-    category: "Sito Vetrina",
-  },
-  {
-    name: "Dynsphotos",
-    url: "https://www.dynsphotos.it/",
-    logo: "https://www.dynsphotos.it/wp-content/uploads/2023/06/Logo-biancosfondo.png",
     category: "Sito Vetrina",
   },
   {
