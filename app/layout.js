@@ -11,7 +11,8 @@ export const viewport = {
 };
 export const metadata = {
   title: "MB Web Design",
-  description: "Portfolio di Michelangelo Bencivenga",
+  description:
+    "Portfolio di Michelangelo Bencivenga. Realizzazione siti web e web app a Napoli",
   icons: {
     icon: [
       {
@@ -40,7 +41,8 @@ export const metadata = {
     title: "MB Web Design",
     siteName: "MB Web Design",
     url: "https://www.mbencivenga.it",
-    description: "Sito Web e Portfolio di Michelangelo Bencivenga",
+    description:
+      "Portfolio di Michelangelo Bencivenga. Realizzazione siti web e web app a Napoli",
     type: "website",
     images: [{ url: "/foto-michelangelo-bencivenga.jpg" }],
   },
